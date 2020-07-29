@@ -9,7 +9,7 @@ interface MessageListProps {
 }
 
 export const MessageList: React.SFC<MessageListProps> = (props: MessageListProps) => {
-  const { state } = useAppState();
+  const {state, dispatch} = useAppState()
   const [stopOnScroll, setStopOnScroll] = useState(false);
   const messagesEndRef = useRef<null | HTMLDivElement>(null) //This is our reference to the instance of this component in the DOM
   //const listBottomPos = messagesEndRef.current.getBoundingClientRect().bottom;

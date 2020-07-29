@@ -5,6 +5,7 @@ import {useAppState} from '../../AppStateContext'
 
 interface ComposeMessageBoxProps {}
 export const ComposeMessageBox: React.SFC<ComposeMessageBoxProps> = (props: ComposeMessageBoxProps) => {
+  const {state, dispatch} = useAppState()
   return (
     <>
       <SendMessageField></SendMessageField>
@@ -61,7 +62,7 @@ export const SendMessageField = () => {
           height: '45px',
         }}
         ref={textAreaEl}
-        placeholder="Tell us how we can help..."
+        placeholder="Type your message here..."
         id="messageContent"
       />
     </section>

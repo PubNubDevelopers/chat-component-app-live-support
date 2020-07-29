@@ -9,7 +9,7 @@ const generatedName: string = generateName(); // This is the UUID that we use fo
 
 //This is where you define the chat app properties.
 export const appData: AppState = {
-  presence: true, // Enable or disable history.
+  presence: true, // Enable or disable presence.
   presenceLastUpdated: 0, // Last time that a presence event was used to update the activeUsers list. Used to prevent duplicate events from triggering multiple calls to hereNow. 
   history: false, // Enable or disable history.
   historyMax: 10, // How many messages to load from history (max 100).

@@ -5,14 +5,11 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 import {AppStateProvider} from './AppStateContext'
 
-
 ReactDOM.render(
-  	<React.StrictMode>
-        <AppStateProvider>
-    		<App />
-        </AppStateProvider>
-  	</React.StrictMode>,
-  	document.getElementById('root'),
+  	<AppStateProvider>
+    	<App />
+    </AppStateProvider>,
+  document.getElementById('root'),
 )
 
 // If you want your app to work offline and load faster, you can change
