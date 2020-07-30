@@ -20,8 +20,8 @@ export const appData: AppState = {
     userAvatar: "https://ui-avatars.com/api/?name=Support+Dashboard?size=100&rounded=true&uppercase=true&bold=true&background=FB0106&color=FFF"
   }], // Array of UserMessages. - In support chat we preload with a message to prompt the agent to start a conversation.
   activeUsers: [], // Array of active users.
-  channel: "support", // The chat channel
-  activeChannel: "", // // In the support demo this is used to set the active channel that a user should use for messages. The generated name from the client is used to create a support channel for that user.
+  channel: "support", // The root chat channel. In this demo this channel is used for presence.
+  activeChannel: "", // // In the support demo this is used to set the active channel that should be used for messages. The generated name from the client is used to create a support channel for that user.
   pubnub: new PubNub({
     publishKey: keyConfiguration.publishKey, // See config/pubnub-keys.json.
     subscribeKey: keyConfiguration.subscribeKey, // See config/pubnub-keys.json.
@@ -172,17 +172,12 @@ export const appStateReducer = (state: AppState, action: Action): AppState => {
     // Unsubscribes from activeChannel and subscribes to new channel.
     case "CHANGE_CHANNEL": {
       if (state.activeChannel != "support."+action.payload) {
-        if (state.activeChannel != "") {
-          state.pubnub.unsubscribe({ // Unsubscribe 
-              channels: [state.activeChannel]
-          });
-        }
 
         var historyMessages: Array<string> = [];
 
         state.pubnub.history(
           {
-              channel: "support."+action.payload,
+              channel: state.channel+"."+action.payload,
               count: state.historyMax // Limit of 100 messages.
           },
           (status, response) => { 
@@ -192,30 +187,20 @@ export const appStateReducer = (state: AppState, action: Action): AppState => {
                   historyMessages.push(response.messages[i].entry);
                 }
               }
+            } else {
+              historyMessages.push({
+                message: "Send a message to "+action.payload+" to start the conversation.",
+                senderName: "Support Dashboard Alert",
+                userAvatar: "https://ui-avatars.com/api/?name=Support+Dashboard?size=100&rounded=true&uppercase=true&bold=true&background=FB0106&color=FFF"
+              });
             }
-          }
-        );
-
-        if (historyMessages.length == 0) {
-          historyMessages.push({
-            message: "Send a message to "+action.payload+" to start the conversation.",
-            senderName: "Support Dashboard Alert",
-            userAvatar: "https://ui-avatars.com/api/?name=Support+Dashboard?size=100&rounded=true&uppercase=true&bold=true&background=FB0106&color=FFF"
-          });
-        }
-
-        // Subscribe on the default channel.
-        state.pubnub.subscribe(
-          {
-            channels: ["support."+action.payload], // Subscribe to global channel for presence events from chat clients.
-            withPresence: state.presence, 
           }
         );
 
         const changeChannelState: AppState = {
           ...state,
           messages: historyMessages,
-          activeChannel: "support."+action.payload
+          activeChannel: state.channel+"."+action.payload
         };
 
         return changeChannelState; 
@@ -274,7 +259,7 @@ export const AppStateProvider = ({ children }: React.PropsWithChildren<{}>) => {
         }
       });
 
-      /* commented for the support app dashboard because we want history enabled in active chats but not for the default global channel. 
+      /* Not used in the support app dashboard because we want history enabled in active chats but not for the default global channel. 
       if (state.history) {
         //Get the history on the default channel.
         state.pubnub.history(
@@ -303,7 +288,7 @@ export const AppStateProvider = ({ children }: React.PropsWithChildren<{}>) => {
       // Subscribe on the default channel.
       state.pubnub.subscribe(
         {
-          channels: [state.channel], // Subscribe to global channel for presence events from chat clients.
+          channels: [state.channel, state.channel+".*"], // Subscribe to global channel for presence events from chat clients and to the wildcard for all sub channels for chat messages.
           withPresence: state.presence, 
         }
       );
