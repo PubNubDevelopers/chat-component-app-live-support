@@ -20,7 +20,7 @@ export const appData: AppState = {
     userAvatar: "https://ui-avatars.com/api/?name=Support+Dashboard?size=100&rounded=true&uppercase=true&bold=true&background=FB0106&color=FFF"
   }], // Array of UserMessages. - In support chat we preload with a message to prompt the agent to start a conversation.
   activeUsers: [], // Array of active users.
-  channel: "support", // The root chat channel. In this demo this channel is used for presence.
+  channel: "support", // The root chat channel. In this demo this channel is used for presence and as a wildcard prefix for the active channel.
   activeChannel: "", // // In the support demo this is used to set the active channel that should be used for messages. The generated name from the client is used to create a support channel for that user.
   pubnub: new PubNub({
     publishKey: keyConfiguration.publishKey, // See config/pubnub-keys.json.
