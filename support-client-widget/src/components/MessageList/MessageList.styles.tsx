@@ -10,7 +10,7 @@ export const MessageListWrapper = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
+  right: auto;
   bottom: 70px;
   text-align: left;
 `

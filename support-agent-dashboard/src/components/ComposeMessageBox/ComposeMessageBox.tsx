@@ -63,7 +63,7 @@ export const SendMessageField = () => {
         }}
         ref={textAreaEl}
         placeholder="Type your message here..."
-        autocomplete="off"
+        autoComplete="off"
         id="messageContent"
       />
     </section>

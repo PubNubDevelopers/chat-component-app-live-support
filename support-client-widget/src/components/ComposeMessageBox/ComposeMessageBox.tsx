@@ -61,7 +61,7 @@ export const SendMessageField = () => {
           height: '45px',
         }}
         ref={textAreaEl}
-        autocomplete="off"
+        autoComplete="off"
         placeholder="Tell us how we can help..."
         id="messageContent"
       />
