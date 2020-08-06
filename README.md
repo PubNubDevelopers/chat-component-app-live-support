@@ -69,13 +69,13 @@ This project is an example of a support style chat experience using reusable cha
 1. Clone the GitHub repository.
 
     ```bash
-    git clone https://github.com/PubNubDevelopers/chat-component-app-simple.git
+    git clone https://github.com/PubNubDevelopers/chat-component-app-live-support.git
     ```
 
 1. Navigate into repo:
 
     ```bash
-    cd chat-component-app-simple
+    cd chat-component-app-live-support
     ```
 1. There are two react apps (support dashboard and client widget). You'll need to configure and run both to try the demo. 
 
