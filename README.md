@@ -81,7 +81,7 @@ This project is an example of a support style chat experience using reusable cha
 
 1. Select an app:
 
- ```bash
+    ```bash
     cd support-agent-dashboard
     ```
 
