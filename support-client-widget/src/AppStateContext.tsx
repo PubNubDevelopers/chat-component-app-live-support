@@ -4,6 +4,7 @@ import PubNub, { SubscribeParameters } from "pubnub";
 import keyConfiguration from "../src/config/pubnub-keys.json";
 import { debug } from "console";
 import Blank from './';
+import DOMPurify from 'dompurify';
 
 const generatedName: string = generateName(); // This is the UUID that we use for identification. 
 
@@ -14,12 +15,12 @@ export const appData: AppState = {
   history: false, // Enable or disable history.
   historyMax: 10, // How many messages to load from history (max 100).
   maxMessagesInList: 200, // Max number of messages at most in the message list.
-  selfAvatar: "https://ui-avatars.com/api/?name="+generatedName+"?size=100&rounded=true&uppercase=true&bold=true&background=fff&color=000", //The URL for the avatar graphic file
+  selfAvatar: "https://ui-avatars.com/api/?name="+generatedName+"?size=100&rounded=true&uppercase=true&bold=true&background=edab63&color=FFF", //The URL for the avatar graphic file
   selfName: generatedName, // Set the display name to be the same as the UUID. You can make this whatever you want.
   messages: [{
     message: "You're connected to an agent. What can I help you with today?",
     senderName: "Support Agent",
-    userAvatar: "https://ui-avatars.com/api/?name=Support+Agent?size=100&rounded=true&uppercase=true&bold=true&background=008B8B&color=000"
+    userAvatar: "https://ui-avatars.com/api/?name=Support+Agent?size=100&rounded=true&uppercase=true&bold=true&background=5EB977&color=000"
   }], // Array of UserMessages. - In support chat we preload with a message to prompt the user to respond.
   activeUsers: [], // Array of active users.
   channel: "support", // The global chat channel. - Used only for presence in support chat demo. 
@@ -103,7 +104,7 @@ export const appStateReducer = (state: AppState, action: Action): AppState => {
         state.messages.shift();
       }
 
-      const debugMerged: AppState = {
+      const addMessage: AppState = {
         ...state,
         messages: [
           ...state.messages as Array<string>,
@@ -113,10 +114,11 @@ export const appStateReducer = (state: AppState, action: Action): AppState => {
         ]
       };
 
-      return debugMerged;
+      return addMessage;
     }
      //ADD_HISTORY prepends array of messages to our internal MessageList buffer.
     case "ADD_HISTORY": {
+
        const historyMerged: AppState = {
         ...state,
         messages: [
@@ -134,6 +136,7 @@ export const appStateReducer = (state: AppState, action: Action): AppState => {
     }
     //ADD_ACTIVEUSERS replaces array of users in our internal activeUsers buffer.
     case "ADD_ACTIVEUSERS": {
+
        const activeUsersList: AppState = {
         ...state,
         activeUsers: [
@@ -144,12 +147,12 @@ export const appStateReducer = (state: AppState, action: Action): AppState => {
     }
     // Publishes a message to chat channel.
     case "SEND_MESSAGE": {
+
       state.pubnub.publish({
         channel: state.activeChannel, // Publish support client message to active channel.
         message: {
-          "message": action.payload,
-          "userAvatar": state.selfAvatar,
-          "senderName": state.selfName,
+          "message": DOMPurify.sanitize(action.payload as string) as string, 
+          "senderName": state.selfName as string,
         },
       });
 
@@ -170,6 +173,7 @@ export const AppStateProvider = ({ children }: React.PropsWithChildren<{}>) => {
       //This where PubNub receives messages subscribed by the channel.
       state.pubnub.addListener({
         message: (messageEvent) => {
+          messageEvent.message.message = DOMPurify.sanitize(messageEvent.message.message as string) as string;
           if (messageEvent.channel == state.activeChannel) { // Only add messages sent to activeChannel
             dispatch({
               type: "ADD_MESSAGE",
@@ -178,30 +182,6 @@ export const AppStateProvider = ({ children }: React.PropsWithChildren<{}>) => {
           }
         }
       });
-
-      if (state.history) {
-        //Get the history on the default channel.
-        state.pubnub.history(
-            {
-                channel: state.channel,
-                count: state.historyMax // Limit of 100 messages.
-            },
-            (status, response) => { 
-              if (typeof response.messages !== "undefined" && response.messages.length > 0) {
-                var historyMessages: Array<string> = [];
-                for (var i = 0; i <= response.messages.length; i++) {
-                  if (typeof response.messages[i] !== "undefined") {
-                    historyMessages.push(response.messages[i].entry)
-                  }
-                }
-                dispatch({
-                  type: "ADD_HISTORY",
-                  payload: historyMessages
-                });
-              }
-            }
-        );
-      }
 
       // Subscribe on the default channel.
       state.pubnub.subscribe(

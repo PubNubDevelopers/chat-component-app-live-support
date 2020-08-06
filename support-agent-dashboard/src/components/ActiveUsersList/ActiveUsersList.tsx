@@ -1,5 +1,5 @@
 import React, {useCallback, FunctionComponent, useReducer, useEffect, useState, useContext, useRef} from 'react'
-import {ActiveUsersListWrapper, ActiveUsersHeader} from './ActiveUsersList.styles'
+import {ActiveUsersListWrapper, ActiveUsersHeader, ActiveUsersOccupancy} from './ActiveUsersList.styles'
 import {ActiveUser} from '../ActiveUser/ActiveUser'
 import {useAppState} from '../../AppStateContext'
 import {useScrollPosition} from '@n8tb1t/use-scroll-position'
@@ -34,5 +34,5 @@ export const ActiveUsersList: React.SFC<ActiveUsersListProps> = (props: ActiveUs
     );
   });
 
-  return <><ActiveUsersHeader>Active Users</ActiveUsersHeader><ActiveUsersListWrapper>{ActiveUsers}</ActiveUsersListWrapper></>
+  return <><ActiveUsersHeader>Active Users<ActiveUsersOccupancy>{state.presenceOccupancy}</ActiveUsersOccupancy></ActiveUsersHeader><ActiveUsersListWrapper>{ActiveUsers}</ActiveUsersListWrapper></>
 }

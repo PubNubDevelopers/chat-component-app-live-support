@@ -6,7 +6,7 @@ export const ComposeMessageBoxWrapper = styled.div`
   box-shadow: 0px -2px 8px #0000000f;
   border-radius: 10px 10px 0px 0px;
   position: absolute;
-  left: 150px;
+  left: 185px;
   right: 0;
   bottom: 0;
 `

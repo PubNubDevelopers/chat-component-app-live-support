@@ -1,18 +1,18 @@
 import styled from 'styled-components'
 
 export const ActiveUserWrapper = styled.div`
-  width: 150px;
+  width: 185px;
   padding-bottom: 40px;
   flex-shrink: 0;
-  border-bottom: 1px dashed #FFFFFF74;
+  border-bottom: 1px dashed black;
 `
 
 export const ActiveUserWrapperSelected = styled.div`
-  width: 150px;
+  width: 185px;
   padding-bottom: 40px;
   flex-shrink: 0;
-  background-color: #4C4C4BFF;
-  border-bottom: 1px dashed #FFFFFF74;
+  background: rgb(247,247,247);
+  border-bottom: 1px dashed black;
 `
 
 export const ActiveUserNameWrapper = styled.span`

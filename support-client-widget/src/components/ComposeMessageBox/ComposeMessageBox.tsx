@@ -57,9 +57,9 @@ export const SendMessageField = () => {
           left: '0',
           paddingLeft: '20px',
           paddingRight: '60px',
-          maxlength: '100',
           height: '45px',
         }}
+        maxLength="250"
         ref={textAreaEl}
         autoComplete="off"
         placeholder="Tell us how we can help..."

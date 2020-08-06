@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const MessageListWrapper = styled.div`
-  color: white;
   list-style: none;
   overflow-y: scroll;
   word-break: break-all;
@@ -9,8 +8,8 @@ export const MessageListWrapper = styled.div`
   max-height: 100%;
   position: absolute;
   top: 0;
-  left: 150px;
-  right: auto;
+  left: 185px;
+  right: 0;
   bottom: 70px;
   text-align: left;
 `

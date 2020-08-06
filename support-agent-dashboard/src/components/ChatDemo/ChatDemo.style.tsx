@@ -10,7 +10,7 @@ export const ChatDemoWrapper = styled.div`
   -webkit-background-size: contain;
   -moz-background-size: contain;
   -o-background-size: contain;
-  background: black;
+  background: rgb(247, 247, 247);
   z-index: 1;
   margin: none;
   height: 100%;

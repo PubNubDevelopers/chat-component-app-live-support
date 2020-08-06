@@ -8,9 +8,9 @@ interface ActiveUserProps {
 
 export const ActiveUser: React.SFC<ActiveUserProps> = (props: ActiveUserProps) => {
   	const {state, dispatch} = useAppState()
-	const ActiveAvatarURL = "https://ui-avatars.com/api/?name="+props.activeUser+"?size=100&rounded=true&uppercase=true&bold=true&background=fff&color=000"
-  
-	const handleClick = (event) => {
+  	const ActiveAvatarURL = "https://ui-avatars.com/api/?name="+props.activeUser+"?size=100&rounded=true&uppercase=true&bold=true&background=5EB977&color=FFF";
+	
+	const handleChannelChange = (event) => {
     	dispatch({
 			type: 'CHANGE_CHANNEL',
 			payload: props.activeUser,
@@ -19,14 +19,14 @@ export const ActiveUser: React.SFC<ActiveUserProps> = (props: ActiveUserProps) =
 
   	if ("support."+props.activeUser == state.activeChannel) {
 	  	return (
-			<ActiveUserWrapperSelected onClick={handleClick}>
+			<ActiveUserWrapperSelected onClick={handleChannelChange}>
 				<ActiveUserAvatarWrapper src={ActiveAvatarURL} />
 				<ActiveUserNameWrapper>{props.activeUser}</ActiveUserNameWrapper>
 			</ActiveUserWrapperSelected>
 		)
   	}
 	return (
-		<ActiveUserWrapper onClick={handleClick}>
+		<ActiveUserWrapper onClick={handleChannelChange}>
 			<ActiveUserAvatarWrapper src={ActiveAvatarURL} />
 			<ActiveUserNameWrapper>{props.activeUser}</ActiveUserNameWrapper>
 		</ActiveUserWrapper>

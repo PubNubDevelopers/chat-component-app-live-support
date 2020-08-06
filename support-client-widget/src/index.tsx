@@ -7,11 +7,9 @@ import {AppStateProvider} from './AppStateContext'
 
 
 ReactDOM.render(
-  	<React.StrictMode>
-        <AppStateProvider>
-    		<App />
-        </AppStateProvider>
-  	</React.StrictMode>,
+    <AppStateProvider>
+		<App />
+    </AppStateProvider>,
   	document.getElementById('root'),
 )
 
