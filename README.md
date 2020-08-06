@@ -1,24 +1,24 @@
 # Support Chat App 
 ### Featuring Reusable PubNub React Chat Components 
 
+<a href="https://www.pubnub.com/">
+    <img align="right" alt="Support Chat Dashboard Demo" src="https://github.com/PubNubDevelopers/chat-component-app-live-support/blob/master/support_dashboard.png" width=400/>
+</a>
+
 This project is a collection of reusable chat components that makes it simple to get started with PubNub in React. Each of the components are designed to be reusable, expandable, and easy to use in another React application. Anyone can build a robust chat app by using these components as a starting point. This project was build from components taken from [Simple Group Chat App](https://github.com/PubNubDevelopers/chat-component-app-simple).
 
 This project is an example of a support style chat experience using reusable chat components. It includes the basic features you would expect from a support chat and includes both the client chat widget and a support dashboard.
 
 *Important Note:* This project is a work in progress. It may contain incomplete code. Pull requests to fix bugs and add features are always welcomed.
 
-<a href="https://www.pubnub.com/">
-    <img alt="Support Chat Dashboard Demo" src="https://raw.githubusercontent.com/PubNubDevelopers/chat-component-app-live-support/master/support_dashboard.png" width=800/>
-</a>
-
-<a href="https://www.pubnub.com/">
-    <img alt="Support Chat Client Widget Demo" src="https://raw.githubusercontent.com/PubNubDevelopers/chat-component-app-live-support/master/client_support_chat.png" width=800/>
-</a>
-
 ## Included Components:
 - Active Users (in dashboard view only) - Displays a list of the available users in the chat and a total count of users. Select a user to start a one on one chat.
 - Message List - Displays the messages received in the chat and the chat history when a user is selected.
 - Compose - Provides input area for sending new messages to the chat.
+
+<a href="https://www.pubnub.com/">
+    <img align="right" alt="Support Chat Client Widget Demo" src="https://github.com/PubNubDevelopers/chat-component-app-live-support/blob/master/client_support_chat.png" width=400/>
+</a>
 
 ## Components Coming Soon:
 - Emoji - Adds emojis to the Compose component.
