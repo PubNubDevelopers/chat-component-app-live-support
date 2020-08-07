@@ -91,7 +91,7 @@ This project is an example of a support style chat experience using reusable cha
     cd support-client-widget
     ```
 
-1. Open src/config/pubnub-keys.json. **Replace YOUR_PUBLISH_KEY_HERE and YOUR_SUBSCRIBE_KEY_HERE** with your keyset from your [PubNub Dashboard](https://dashboard.pubnub.com/). YOU MUST DO THIS FOR BOTH THE CLIENT AND DASHBOARD APPS.
+1. Open src/config/pubnub-keys.json. **Replace YOUR_PUBLISH_KEY_HERE and YOUR_SUBSCRIBE_KEY_HERE** with your keyset from your [PubNub Dashboard](https://dashboard.pubnub.com/). YOU MUST DO THIS FOR BOTH THE CLIENT AND DASHBOARD APPS. Use the same keyset for both apps.
 
 1. Install the node modules.
 
