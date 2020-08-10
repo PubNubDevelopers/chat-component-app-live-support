@@ -12,7 +12,7 @@ This project is an example of a support style chat experience using reusable cha
 *Important Note:* This project is a work in progress. It may contain incomplete code. Pull requests to fix bugs and add features are always welcomed.
 
 ## Included Components:
-- Active Users (in dashboard view only) - Displays a list of the available users in the chat and a total count of users. Select a user to start a one on one chat.
+- Selectable Active Users List (in dashboard view only) - Displays a list of the available users in the chat and a total count of users. Select a user to start a one on one chat.
 - Message List - Displays the messages received in the chat and the chat history when a user is selected.
 - Compose - Provides input area for sending new messages to the chat.
 
