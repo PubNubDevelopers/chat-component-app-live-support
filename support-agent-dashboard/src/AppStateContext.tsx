@@ -57,7 +57,7 @@ type Action =
     payload: Array<string>
   }
   | {
-    type: "ADD_ACTIVEUSERS",
+    type: "REFRESH_ACTIVEUSERS",
     payload: Array<string>
   }
   | {
@@ -149,8 +149,8 @@ export const appStateReducer = (state: AppState, action: Action): AppState => {
 
       return historyMerged;
     }
-    //ADD_ACTIVEUSERS replaces array of users in our internal activeUsers buffer.
-    case "ADD_ACTIVEUSERS": {
+    //REFRESH_ACTIVEUSERS replaces array of users in our internal activeUsers buffer.
+    case "REFRESH_ACTIVEUSERS": {
 
        const activeUsersList: AppState = {
         ...state,
@@ -234,8 +234,8 @@ export const appStateReducer = (state: AppState, action: Action): AppState => {
 export const AppStateProvider = ({ children }: React.PropsWithChildren<{}>) => {
 
   const [state, dispatch] = useReducer(appStateReducer, appData)
-
   useEffect(() => {
+    var newActiveUsers = state.activeUsers;
     try {
       //This where PubNub receives messages subscribed by the channel.
       state.pubnub.addListener({
@@ -250,33 +250,36 @@ export const AppStateProvider = ({ children }: React.PropsWithChildren<{}>) => {
           }
         },
         presence: function(p) {
-          if (state.presenceLastUpdated != p.timestamp) { // Avoiding making multiple hereNow calls.
-            state.presenceLastUpdated = p.timestamp;
-            state.pubnub.hereNow(
-                {
-                    channels: [state.channel],
-                    includeUUIDs: true // In this demo we're using the uuid as the user's name. You could also use presence state to provide a username and more. In this app all we need is the UUID of online users.
-                },
-                (status, response) => {
-                  if (response.channels[state.channel].occupancy > 0) {
-                    var newActiveUsers: Array<string> = [];
-                    for (var i = 0; i < response.channels[state.channel].occupancy; i++) {
-                      if (response.channels[state.channel].occupants[i].uuid !== state.selfName) { // Don't include support agent on the list.
-                        newActiveUsers.push(response.channels[state.channel].occupants[i].uuid); 
-                      }
-                    }
-                    newActiveUsers.sort(); // This prevents a users name from moving in the list.
-                    dispatch({
-                      type: "ADD_ACTIVEUSERS",
-                      payload: newActiveUsers
-                    });
-                    dispatch({
-                      type: "UPDATE_OCCUPANCY",
-                      payload: newActiveUsers.length
-                    });
-                  }
-                }
-            );
+          if (p.action == "join") {
+            if ((!state.activeUsers.includes(p.uuid)) ) { // Only add user if they are missing from the list.
+              if (p.uuid !== state.selfName) { // Don't include support agent on the list.
+                newActiveUsers.push(p.uuid); 
+              }
+              newActiveUsers.sort();
+              dispatch({
+                type: "REFRESH_ACTIVEUSERS",
+                payload: newActiveUsers
+              });
+              dispatch({
+                type: "UPDATE_OCCUPANCY",
+                payload: newActiveUsers.length
+              });
+              // Add to current count 
+            }
+          }
+          if ((p.action == "timeout") || (p.action == "leave")) {
+            var index = newActiveUsers.indexOf(p.uuid)
+            if (index !== -1) {
+              newActiveUsers.splice(index, 1);
+              dispatch({
+                type: "REFRESH_ACTIVEUSERS",
+                payload: newActiveUsers
+              });
+              dispatch({
+                type: "UPDATE_OCCUPANCY",
+                payload: newActiveUsers.length
+              });
+            }
           }
         }
       });
@@ -289,16 +292,14 @@ export const AppStateProvider = ({ children }: React.PropsWithChildren<{}>) => {
           },
           (status, response) => {
             if (response.channels[state.channel].occupancy > 0) {
-              var newActiveUsers: Array<string> = [];
               for (var i = 0; i < response.channels[state.channel].occupancy; i++) {
-                if (response.channels[state.channel].occupants[i].uuid !== state.selfName) {
+                if ((!state.activeUsers.includes(response.channels[state.channel].occupants[i].uuid)) && (response.channels[state.channel].occupants[i].uuid !== state.selfName)) {
                   newActiveUsers.push(response.channels[state.channel].occupants[i].uuid); 
                 }
               }
-              //newActiveUsers.push(state.selfName); Not used in support demo because we dont want the agent in the list.
-              newActiveUsers.sort(); // This prevents a users name from moving in the list.
+              newActiveUsers.sort();
               dispatch({
-                type: "ADD_ACTIVEUSERS",
+                type: "REFRESH_ACTIVEUSERS",
                 payload: newActiveUsers
               });
               dispatch({
