@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const MessageListPanelWrapper = styled.div`
   width: 100%;
+  min-width: 250px;
   top: 0px;
   z-index: 50;
   -webkit-background-size: contain;
