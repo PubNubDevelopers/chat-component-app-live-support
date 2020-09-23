@@ -24,8 +24,9 @@ export const MessageMessageInnerWrapper = styled.span`
   display: inline;
   overflow: hidden;
   text-overflow: ellipsis;
-  overflow-wrap: true
-  white-space: nowrap;
+  overflow-wrap: true;
+  word-break: keep-all; 
+  white-space: pre-wrap;
   background: #79787C 0% 0% no-repeat padding-box;
   border-radius: 0px 31px 31px 31px;
   border: 1px solid #FFFFFF;

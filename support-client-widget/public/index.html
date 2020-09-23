@@ -28,7 +28,10 @@
   </head>
   <body >
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root" ></div>
+     <fieldset id="root-wrap" >
+        <legend id="support-legend"><b>Get Support</b></legend>
+        <div id="root" ></div>
+      </fieldset>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -41,4 +44,31 @@
     -->
     <!-- <script src="https://meet.jit.si/external_api.js"></script> -->
   </body>
+  <style type="text/css">
+    #support-legend {
+      border: 10px #79787C solid;
+      background-color: #79787C;
+      color: #ffffff;
+      border-radius:  5px 5px 0px 0px;
+    }
+    #root-wrap {
+      border-style: none;
+      position: fixed;
+      bottom: 10px;
+      right: 8px;
+      width: 387px;
+      height: 545px;
+    }
+    #root {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 365px;
+      height: 500px;
+      border-radius: 0px 5px 5px 5px;
+      border-style: solid;
+      border-width: 10px;
+      border-color: #79787C;
+    }
+  </style>
 </html>

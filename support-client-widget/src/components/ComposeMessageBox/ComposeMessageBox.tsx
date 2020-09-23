@@ -62,7 +62,7 @@ export const SendMessageField = () => {
         maxLength="250"
         ref={textAreaEl}
         autoComplete="off"
-        placeholder="Tell us how we can help..."
+        placeholder="How we can help?"
         id="messageContent"
       />
     </section>
