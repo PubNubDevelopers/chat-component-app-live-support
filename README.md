@@ -1,4 +1,4 @@
-# Support Chat App 
+# Heathcare Doctor Patient Chat App 
 ### Featuring Reusable PubNub React Chat Components 
 
 <a href="https://www.pubnub.com/">
