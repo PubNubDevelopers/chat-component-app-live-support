@@ -1,4 +1,4 @@
-# Heathcare Doctor Patient Chat App 
+# Healthcare Doctor Patient Chat App 
 ### Featuring Reusable PubNub React Chat Components 
 
 <a href="https://www.pubnub.com/">
@@ -9,7 +9,7 @@ Building a healthcare chat app in React? This is a alternate version of the supp
 
 This project is a collection of reusable chat components that makes it simple to get started with PubNub in React. Each of the components are designed to be reusable, expandable, and easy to use in another React application. Anyone can build a robust chat app by using these components as a starting point. This project was build from components taken from [Simple Group Chat App](https://github.com/PubNubDevelopers/chat-component-app-simple).
 
-This project is an example of a doctor<>patient support style chat experience using reusable chat components. It includes the basic features you would expect from a heathcare chat app and includes both the client chat widget and a doctor dashboard.
+This project is an example of a doctor<>patient support style chat experience using reusable chat components. It includes the basic features you would expect from a healthcare chat app and includes both the client chat widget and a doctor dashboard.
 
 *Important Note:* This project is a work in progress. It may contain incomplete code. Pull requests to fix bugs and add features are always welcomed.
 
