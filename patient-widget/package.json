@@ -1,5 +1,5 @@
 {
-  "name": "support-client-widget",
+  "name": "patient-widget",
   "version": "0.1.1",
   "engines": {
     "node": "12.18.2",
