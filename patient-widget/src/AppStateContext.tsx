@@ -15,7 +15,7 @@ export const appData: AppState = {
   history: false, // Enable or disable history.
   historyMax: 10, // How many messages to load from history (max 100).
   maxMessagesInList: 200, // Max number of messages at most in the message list.
-  selfAvatar: "https://ui-avatars.com/api/?name="+generatedName+"?size=100&rounded=true&uppercase=true&bold=true&background=057D29&color=FFF", //The URL for the avatar graphic file
+  selfAvatar: "https://ui-avatars.com/api/?name="+generatedName+"?size=100&rounded=true&uppercase=true&bold=true&background=B3B2B8&color=FFF", //The URL for the avatar graphic file
   selfName: generatedName, // Set the display name to be the same as the UUID. You can make this whatever you want.
   messages: [{
     message: "You're connected to a doctor. What can I help you with today?",
