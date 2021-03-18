@@ -2,7 +2,7 @@
 ### Featuring Reusable PubNub React Chat Components 
 
 <a href="https://www.pubnub.com/">
-    <img align="right" alt="Support Chat Dashboard Demo" src="https://github.com/PubNubDevelopers/chat-component-app-live-support/blob/master/support_dashboard.png" width=400/>
+    <img align="right" alt="Doctor Chat Dashboard Demo" src="https://github.com/PubNubDevelopers/chat-component-app-live-support/raw/healthcare-chat-app/doctor_dashboard.png" width=400/>
 </a>
 
 Building a healthcare chat app in React? This is a alternate version of the support style chat experience created for healthcare. 
@@ -19,7 +19,7 @@ This project is an example of a doctor<>patient support style chat experience us
 - Compose - Provides input area for sending new messages to the chat.
 
 <a href="https://www.pubnub.com/">
-    <img align="right" alt="Doctor Chat Dashboard Demo" src="https://github.com/PubNubDevelopers/chat-component-app-live-support/raw/healthcare-chat-app/doctor_dashboard.png" width=400/>
+    <img align="right" alt="Doctor Chat Patient Widget Demo" src="https://github.com/PubNubDevelopers/chat-component-app-live-support/raw/healthcare-chat-app/patient_chat.png" width=400/>
 </a>
 
 ## Components Coming Soon:
