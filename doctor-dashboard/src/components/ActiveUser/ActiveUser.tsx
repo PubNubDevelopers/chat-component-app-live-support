@@ -17,7 +17,7 @@ export const ActiveUser: React.SFC<ActiveUserProps> = (props: ActiveUserProps) =
 		})
   	}
 
-  	if ("support."+props.activeUser == state.activeChannel) {
+  	if ("doctor."+props.activeUser == state.activeChannel) {
 	  	return (
 			<ActiveUserWrapperSelected onClick={handleChannelChange}>
 				<ActiveUserAvatarWrapper src={ActiveAvatarURL} />

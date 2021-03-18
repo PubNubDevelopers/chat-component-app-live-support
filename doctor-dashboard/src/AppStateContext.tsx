@@ -26,7 +26,7 @@ export const appData: AppState = {
   pubnub: new PubNub({
     publishKey: keyConfiguration.publishKey, // See config/pubnub-keys.json.
     subscribeKey: keyConfiguration.subscribeKey, // See config/pubnub-keys.json.
-    uuid: "Doctor" // Use the UUID for identification on PubNub. 
+    uuid: "Dr. Real-time" // Use the UUID for identification on PubNub. 
   }),
   message: "",
 }
@@ -188,7 +188,7 @@ export const appStateReducer = (state: AppState, action: Action): AppState => {
     }
     // Unsubscribes from activeChannel and subscribes to new channel.
     case "CHANGE_CHANNEL": {
-      if (state.activeChannel != "support."+action.payload) {
+      if (state.activeChannel != "doctor."+action.payload) {
 
         var historyMessages: Array<string> = [];
 
@@ -252,7 +252,7 @@ export const AppStateProvider = ({ children }: React.PropsWithChildren<{}>) => {
         presence: function(p) {
           if (p.action == "join") {
             if ((!state.activeUsers.includes(p.uuid)) ) { // Only add user if they are missing from the list.
-              if (p.uuid !== state.selfName) { // Don't include support agent on the list.
+              if (p.uuid !== state.selfName) { // Don't include doctor on the list.
                 newActiveUsers.push(p.uuid); 
               }
               newActiveUsers.sort();

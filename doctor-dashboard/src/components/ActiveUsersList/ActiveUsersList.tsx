@@ -34,5 +34,5 @@ export const ActiveUsersList: React.SFC<ActiveUsersListProps> = (props: ActiveUs
     );
   });
 
-  return <><ActiveUsersHeader>Active Users<ActiveUsersOccupancy>{state.presenceOccupancy}</ActiveUsersOccupancy></ActiveUsersHeader><ActiveUsersListWrapper>{ActiveUsers}</ActiveUsersListWrapper></>
+  return <><ActiveUsersHeader>Active Patients<ActiveUsersOccupancy>{state.presenceOccupancy}</ActiveUsersOccupancy></ActiveUsersHeader><ActiveUsersListWrapper>{ActiveUsers}</ActiveUsersListWrapper></>
 }
