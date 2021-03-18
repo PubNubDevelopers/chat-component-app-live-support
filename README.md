@@ -22,12 +22,6 @@ This project is an example of a doctor<>patient support style chat experience us
     <img align="right" alt="Doctor Chat Patient Widget Demo" src="https://github.com/PubNubDevelopers/chat-component-app-live-support/raw/healthcare-chat-app/patient_chat.png" width=400/>
 </a>
 
-## Components Coming Soon:
-- Emoji - Adds emojis to the Compose component.
-- Message Preview - Adds message previews to the Active Users component.
-- Typing Indicator - Add typing indicator to the Compose component.
-- Read Receipts - Updates Message List component with a timestamp of when messages were last read. 
-
 ## Notable Features:
 - One on one style chat with automatic creation of new chats and users.
 - [PubNub Presence](https://www.pubnub.com/products/presence/) powered user activity.
@@ -73,6 +67,12 @@ This project is an example of a doctor<>patient support style chat experience us
     ```bash
     git clone https://github.com/PubNubDevelopers/chat-component-app-live-support.git
     ```
+    
+1. Move to branch.
+
+    ```bash
+    git checkout healthcare-chat-app
+    ```
 
 1. Navigate into repo:
 
@@ -84,13 +84,13 @@ This project is an example of a doctor<>patient support style chat experience us
 1. Select an app:
 
     ```bash
-    cd support-agent-dashboard
+    cd doctor-dashboard
     ```
 
     OR
 
     ```bash
-    cd support-client-widget
+    cd patient-widget
     ```
 
 1. Open src/config/pubnub-keys.json. **Replace YOUR_PUBLISH_KEY_HERE and YOUR_SUBSCRIBE_KEY_HERE** with your keyset from your [PubNub Dashboard](https://dashboard.pubnub.com/). YOU MUST DO THIS FOR BOTH THE CLIENT AND DASHBOARD APPS. Use the same keyset for both apps.
