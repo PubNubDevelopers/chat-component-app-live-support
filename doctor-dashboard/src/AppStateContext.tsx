@@ -8,25 +8,25 @@ import DOMPurify from 'dompurify';
 
 //This is where you define the chat app properties.
 export const appData: AppState = {
-  presence: true, // Enable or disable presence. REQUIRED FOR SUPPORT CHAT DEMO
+  presence: true, // Enable or disable presence. REQUIRED FOR DOCTOR CHAT DEMO
   presenceLastUpdated: 0, // Last time that a presence event was used to update the activeUsers list. Used to prevent duplicate events from triggering multiple calls to hereNow. 
   presenceOccupancy: 0, // How many active users there are.
   history: true, // Enable or disable history.
   historyMax: 10, // How many messages to load from history (max 100).
   maxMessagesInList: 200, // Max number of messages at most in the message list.
-  selfAvatar: "https://ui-avatars.com/api/?name=Support+Agent?size=100&rounded=true&uppercase=true&bold=true&background=edab63&color=000", //The URL for the avatar graphic file
-  selfName: "Support Agent", // Set the display name to be the same as the UUID. You can make this whatever you want.
+  selfAvatar: "https://uc.uxpin.com/files/879252/879907/asian_young_main_group_hospital_professional-c0ba747cc87f47e9e774a98d96ab200e.png", //The URL for the avatar graphic file
+  selfName: "Dr. Real-time", // Set the display name to be the same as the UUID. You can make this whatever you want.
   messages: [{
-    message: "← Select a conversation from the user list to start chatting.",
-    senderName: "Support Dashboard Alert"
-  }], // Array of UserMessages. - In support chat we preload with a message to prompt the agent to start a conversation.
+    message: "← Select a patient from the list to open a consultation.",
+    senderName: "Doctor Dashboard Alert"
+  }], // Array of UserMessages. - In healthcare chat we preload with a message to prompt the agent to start a conversation.
   activeUsers: [], // Array of active users.
-  channel: "support", // The root chat channel. In this demo this channel is used for presence and as a wildcard prefix for the active channel.
-  activeChannel: "", // // In the support demo this is used to set the active channel that should be used for messages. The generated name from the client is used to create a support channel for that user.
+  channel: "doctor", // The root chat channel. In this demo this channel is used for presence and as a wildcard prefix for the active channel.
+  activeChannel: "", // // In the healthcare chat demo this is used to set the active channel that should be used for messages. The generated name from the client is used to create a support channel for that user.
   pubnub: new PubNub({
     publishKey: keyConfiguration.publishKey, // See config/pubnub-keys.json.
     subscribeKey: keyConfiguration.subscribeKey, // See config/pubnub-keys.json.
-    uuid: "Support Agent" // Use the UUID for identification on PubNub. 
+    uuid: "Doctor" // Use the UUID for identification on PubNub. 
   }),
   message: "",
 }
@@ -207,7 +207,7 @@ export const appStateReducer = (state: AppState, action: Action): AppState => {
             } else {
               historyMessages.push({
                 message: "Send a message to "+action.payload+" to start the conversation.",
-                senderName: "Support Dashboard Alert",
+                senderName: "Doctor Dashboard Alert",
                 userAvatar: "https://ui-avatars.com/api/?name=Support+Dashboard?size=100&rounded=true&uppercase=true&bold=true&background=FB0106&color=FFF"
               });
             }
