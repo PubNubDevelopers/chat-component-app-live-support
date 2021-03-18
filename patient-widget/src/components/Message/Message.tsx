@@ -21,7 +21,7 @@ export const Message: React.SFC<MessageProps> = (props: MessageProps) => {
 			</MessageWrapper>
 		)
 	} else {
-		const userAvatar = "https://ui-avatars.com/api/?name="+props.message.senderName+"?size=100&rounded=true&uppercase=true&bold=true&background=5EB977&color=FFF"
+		const userAvatar = "https://uc.uxpin.com/files/879252/879907/asian_young_main_group_hospital_professional-c0ba747cc87f47e9e774a98d96ab200e.png"
 		return (
 			<MessageWrapper key={props.message.internalKey}>
 			  	<AvatarWrapper src={userAvatar} />

@@ -15,16 +15,16 @@ export const appData: AppState = {
   history: false, // Enable or disable history.
   historyMax: 10, // How many messages to load from history (max 100).
   maxMessagesInList: 200, // Max number of messages at most in the message list.
-  selfAvatar: "https://ui-avatars.com/api/?name="+generatedName+"?size=100&rounded=true&uppercase=true&bold=true&background=edab63&color=FFF", //The URL for the avatar graphic file
+  selfAvatar: "https://ui-avatars.com/api/?name="+generatedName+"?size=100&rounded=true&uppercase=true&bold=true&background=057D29&color=FFF", //The URL for the avatar graphic file
   selfName: generatedName, // Set the display name to be the same as the UUID. You can make this whatever you want.
   messages: [{
-    message: "You're connected to an agent. What can I help you with today?",
-    senderName: "Support Agent",
-    userAvatar: "https://ui-avatars.com/api/?name=Support+Agent?size=100&rounded=true&uppercase=true&bold=true&background=5EB977&color=000"
-  }], // Array of UserMessages. - In support chat we preload with a message to prompt the user to respond.
+    message: "You're connected to a doctor. What can I help you with today?",
+    senderName: "Dr. Real-time",
+    userAvatar: "https://uc.uxpin.com/files/879252/879907/asian_young_main_group_hospital_professional-c0ba747cc87f47e9e774a98d96ab200e.png"
+  }], // Array of UserMessages. - In healthcare chat we preload with a message to prompt the user to respond.
   activeUsers: [], // Array of active users.
-  channel: "support", // The global chat channel. - Used only for presence in support chat demo. 
-  activeChannel: "support."+generatedName, // In the support demo this is used to set the active channel that a user should use for messages. The generated name is used to create a support channel for that user.
+  channel: "doctor", // The global chat channel. - Used only for presence in healthcare chat demo. 
+  activeChannel: "doctor."+generatedName, // In the healthcare demo this is used to set the active channel that a user should use for messages. The generated name is used to create a support channel for that user.
   pubnub: new PubNub({
     publishKey: keyConfiguration.publishKey, // See config/pubnub-keys.json.
     subscribeKey: keyConfiguration.subscribeKey, // See config/pubnub-keys.json.

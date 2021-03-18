@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const ComposeMessageBoxWrapper = styled.div`
   height: 70px;
-  background: #414041 0% 0% no-repeat padding-box;
+  background: #79787C 0% 0% no-repeat padding-box;
   box-shadow: 0px -2px 8px #0000000f;
   border-radius: 10px 10px 0px 0px;
   position: absolute;
