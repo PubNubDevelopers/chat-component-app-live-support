@@ -174,7 +174,7 @@ export const appStateReducer = (state: AppState, action: Action): AppState => {
     case "SEND_MESSAGE": {
 
       if (state.activeChannel == "") {
-        alert("Select a conversation from the user list first to send messages.");
+        alert("Select a patient from the list first to send messages.");
       } else {
         state.pubnub.publish({
           channel: state.activeChannel,
@@ -206,9 +206,9 @@ export const appStateReducer = (state: AppState, action: Action): AppState => {
               }
             } else {
               historyMessages.push({
-                message: "Send a message to "+action.payload+" to start the conversation.",
+                message: "Send a message to "+action.payload+" to start the consultation.",
                 senderName: "Doctor Dashboard Alert",
-                userAvatar: "https://ui-avatars.com/api/?name=Support+Dashboard?size=100&rounded=true&uppercase=true&bold=true&background=FB0106&color=FFF"
+                userAvatar: "https://ui-avatars.com/api/?name=?size=100&rounded=true&uppercase=true&bold=true&background=FB0106&color=FB0106"
               });
             }
           }
