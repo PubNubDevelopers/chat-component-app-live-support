@@ -1,6 +1,8 @@
 # Healthcare Doctor Patient Chat App 
 ### Featuring Reusable PubNub React Chat Components 
 
+## [Try the demo](https://pubnubdevelopers.github.io/chat-component-app-live-support/)
+
 <a href="https://www.pubnub.com/">
     <img align="right" alt="Doctor Chat Dashboard Demo" src="https://github.com/PubNubDevelopers/chat-component-app-live-support/raw/healthcare-chat-app/doctor_dashboard.png" width=400/>
 </a>
