@@ -1,5 +1,8 @@
 # Support Chat App 
 ### Featuring Reusable PubNub React Chat Components 
+Find more Unity chat features in our [Unity Developer Path](https://www.pubnub.com/developers/unity-real-time-developer-path/).
+
+## [Try the demo](https://pubnubdevelopers.github.io/chat-component-app-live-support/)
 
 <a href="https://www.pubnub.com/">
     <img align="right" alt="Support Chat Dashboard Demo" src="https://github.com/PubNubDevelopers/chat-component-app-live-support/blob/master/support_dashboard.png" width=400/>
