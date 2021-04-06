@@ -4,7 +4,7 @@ Open both pages to demo.
 
 [Support Client Widget](https://pubnubdevelopers.github.io/chat-component-app-live-support/support-client-widget/)
 
-Or try the healthcare chat version (open both pages):
+Or try the healthcare chat branch (open both pages):
 
 [Healthcare Chat Doctor Dashboard](https://pubnubdevelopers.github.io/chat-component-app-live-support/healthcare-chat-doctor-dashboard/)
 
