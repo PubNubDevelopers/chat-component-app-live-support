@@ -1,3 +1,7 @@
+## Please note that this project is no longer actively maintained or accepting Pull Requests.  Please use the [React Group Chat app](https://github.com/pubnub/react-chat-components/tree/master/samples/react/group-chat) instead.
+
+-------------------------------
+
 # Support Chat App 
 ### Featuring Reusable PubNub React Chat Components 
 
