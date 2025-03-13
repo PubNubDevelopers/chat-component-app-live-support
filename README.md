@@ -42,7 +42,7 @@ This project is an example of a support style chat experience using reusable cha
 - [Node.js](https://nodejs.org/en/)
 - [PubNub Account](#pubnub-account) (*Free*) 
 
-<a href="https://dashboard.pubnub.com/signup">
+<a href="https://admin.pubnub.com/register">
     <img alt="PubNub Signup" src="https://i.imgur.com/og5DDjf.png" width=260 height=97/>
 </a>
 
